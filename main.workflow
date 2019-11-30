@@ -15,8 +15,8 @@ action "run analysis" {
   needs = "download data"
   uses = "jefftriplett/python-actions@master"
   args = [
-    "workflows/minimal-python/scripts/get_mean_by_group.py",
-    "workflows/minimal-python/data/global.csv",
+    "scripts/get_mean_by_group.py",
+    "data/global.csv",
     "5"
   ]
 }
@@ -24,7 +24,7 @@ action "validate results" {
   needs = "run analysis"
   uses = "jefftriplett/python-actions@master"
   args = [
-    "workflows/minimal-python/scripts/validate_output.py",
-    "workflows/minimal-python/data/global_per_capita_mean.csv"
+    "scripts/validate_output.py",
+    "data/global_per_capita_mean.csv"
   ]
 }
