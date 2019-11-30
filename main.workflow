@@ -20,3 +20,11 @@ action "run analysis" {
     "5"
   ]
 }
+action "validate results" {
+  needs = "run analysis"
+  uses = "jefftriplett/python-actions@master"
+  args = [
+    "workflows/minimal-python/scripts/validate_output.py",
+    "workflows/minimal-python/data/global_per_capita_mean.csv"
+  ]
+}
